@@ -1,0 +1,13 @@
+{
+    "name": "common-back",
+    "version": "1.0.0",
+    "description": "后端通过接口设计",
+    "author": "dukeshao",
+    "license": "ISC",
+    "devDependencies": {
+        "mongodb": "^3.5.5"
+    },
+    "dependencies": {
+        "express": "^4.17.0"
+    }
+}
