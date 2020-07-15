@@ -2,6 +2,8 @@
     "PORT": 3355,
     "mongo": "mongodb://localhost:27017",
     "database": "common",
+    "key": "dukeshao12345678",
+    "iv": "dukeshao12345678",
     "collections": [
         "user"
     ]

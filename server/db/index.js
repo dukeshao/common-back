@@ -45,13 +45,15 @@ exports.deletes = async (colName, query) => {
     if (query._id) {
         // 通过id查询数据必须使用这种格式
         // _id:'xxx' -> _id:ObjectId('xxx');
-        query._id = ObjectId(query._id);
+        // query._id = ObjectId(query._id);
+        query._id = query._id.map(m => ObjectId(m))
     }
 
     let result;
     try {
-        result = await collection.deleteMany(query)
-        console.log(query);
+        // result = await collection.deleteMany(query)
+        //批量删除
+        result = await collection.deleteMany({ _id: { $in: query._id } })
     } catch (err) {
         result = err
     }
@@ -90,7 +92,7 @@ exports.update = async (colName, query, data) => {
  * @查
  */
 exports.find = async (colName, query = {}, { skip = 0, limit, sort } = {}) => {
-    console.log("find_query=>", colName)
+    // console.log("find_query=>", colName)
     let { db, client } = await connect();
     let collection = db.collection(colName);
     if (query._id) {
@@ -124,7 +126,7 @@ exports.find = async (colName, query = {}, { skip = 0, limit, sort } = {}) => {
     } catch (err) {
         result = err
     }
-    console.log("find=>", result);
+    // console.log("find=>", result);
     // 关闭当前连接，释放资源
     client.close();
     return result;
