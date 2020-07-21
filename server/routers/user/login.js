@@ -30,7 +30,7 @@ Router.post('/', async (req, res) => {
         // console.log("result1=>", result)
         if (result.length === 1) {
             result = result[0];
-            let jwt = new Jwt(result);
+            let jwt = new Jwt(result.username);
             let token = jwt.generateToken();
             delete (result.psw);
             delete (result._id);

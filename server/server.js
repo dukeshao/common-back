@@ -1,8 +1,12 @@
+var http = require('http');
 const express = require('express');
+// var sio = require('socket.io');
 const app = express();
 const routers = require('./routers');
 
+
 const { formatData, Jwt } = require('./utils');
+
 
 
 //设置跨域访问
@@ -47,3 +51,16 @@ const { PORT } = require('./config.json');
 app.listen(PORT, () => {
     console.log("server start on port %s", PORT);
 })
+
+// var server = http.createServer(app);
+// server.listen(PORT, '127.0.0.1');
+// var io = sio.listen(server);
+// var users = [];
+// io.sockets.on('connection', function (socket) {
+//     console.log('a socket is connect, id: ' + socket.id);
+//     io.sockets.emit('conn', socket.id);
+// });
+// setInterval(function () {
+    // console.log('推送消息');
+//     io.sockets.emit('conn', '推送消息');
+// }, 1000);

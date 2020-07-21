@@ -31,7 +31,7 @@ let postKeyArr = [
     {
         key: "nickname", value: null, required: true,
         type: "String", regex: /^[\u2E80-\u9FFF]{2,4}$/, length: [2, 4],
-        rules: "昵称仅支持中文,长度为2-6"
+        rules: "昵称仅支持中文,长度为2-4"
     },
     {
         key: "phone", value: null, required: true,

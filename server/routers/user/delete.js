@@ -10,7 +10,7 @@ const colName = 'user';
  * @param {Array} ids 字符串一维数组，用字符串拼接去校验数据格式
  */
 let keyArr = [
-    { key: "ids", value: [""], required: true, regex: /^[a-zA-Z;\d]+$/ },
+    { key: "ids", value: [""], required: true, regex: /^[a-zA-Z;\d]+$/, rules: "请传入正确的用户id" },
 ]
 
 //删除用户 根据 _id

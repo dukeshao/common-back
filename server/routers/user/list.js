@@ -13,8 +13,8 @@ const colName = 'user';
  * @param {String} name 模糊搜索
  */
 let keyArr = [
-    { key: "pageSize", value: 10, required: true, regex: /^[\d]+$/ },
-    { key: "pageNum", value: 1, required: true, regex: /^[\d]+$/ },
+    { key: "pageSize", value: 10, required: true, regex: /^[\d]+$/, rules: "仅支持数字" },
+    { key: "pageNum", value: 1, required: true, regex: /^[\d]+$/, rules: "仅支持数字" },
     { key: "name", value: "", type: "String" },
 ]
 

@@ -40,7 +40,7 @@ class Jwt {
         let cert = fs.readFileSync(path.join(__dirname, '../rsa_key/rsa_private_key.pem'));//私钥 可以自己生成;
         let token = jwt.sign({
             data,
-        }, cert, { algorithm: 'RS256', expiresIn: '3h' });
+        }, cert, { expiresIn: '3h' });
         return token;
     }
 
@@ -50,7 +50,7 @@ class Jwt {
         let cert = fs.readFileSync(path.join(__dirname, '../rsa_key/rsa_public_key.pem'));//公钥 可以自己生成
         let res;
         try {
-            let result = jwt.verify(token, cert, { algorithms: ['RS256'] }) || {};
+            let result = jwt.verify(token, cert) || {};
             let { exp = 0 } = result;
             let current = Math.floor(Date.now() / 1000);
             if (current <= exp) {

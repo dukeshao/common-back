@@ -11,7 +11,7 @@ const colName = 'user';
  * @param {String} id  用户 ID
  */
 let keyArr = [
-    { key: "id", value: "jshdjfss", required: true, regex: /^[a-zA-Z\d]+$/ },
+    { key: "id", value: "jshdjfss", required: true, regex: /^[a-zA-Z\d]+$/, rules: "请使用正确的用户id" },
 ]
 
 Router.get('/:id', async (req, res) => {
